@@ -2,30 +2,36 @@ package com.employee;
 
 import java.util.Random;
 
-public class EmployeeWageBuilder {
-	static final int PRESENT = 1;
-	static final int WAGE_PER_HOUR = 20;
-	static final int FULL_DAY_HOUR = 8;
+class Employee {
+	static final int IS_FULL_TIME = 1;
+	static final int IS_PART_TIME = 2;
+	static final int EMP_WAGE_PER_DAY = 20;
 
 	public static int empCheck() {
 		Random random = new Random();
 		int empCheck = random.nextInt(2);
+
 		return empCheck;
 	}
 
-	public static void employeeWage() {
-		int empWage = 0;
-		int empcheck = empCheck();
-		if (empcheck == PRESENT) {
-			empWage = WAGE_PER_HOUR * FULL_DAY_HOUR;
+	public static void empSalary(int empCheck) {
+		int empWrkHrs = 0;
+		if (empCheck == IS_FULL_TIME) {
+			empWrkHrs = 8;
+		} else if (empCheck == IS_PART_TIME) {
+			empWrkHrs = 4;
+		} else {
+			empWrkHrs = 0;
 		}
-		System.out.println("The wage of employee is :  = " + empWage);
+		int empWage = empWrkHrs * EMP_WAGE_PER_DAY;
+		System.out.println("Wage Accordingly is :  = " + empWage);
 	}
+}
 
+public class EmployeeWageBuilder {
 	public static void main(String[] args) {
-		System.out.println("Welcome to Employee wage Builder");
-
-		employeeWage();
-
+		System.out.println("Welcome to Employee Wage Computation");
+		int empCheck = Employee.empCheck();
+		Employee.empSalary(empCheck);
 	}
 }
