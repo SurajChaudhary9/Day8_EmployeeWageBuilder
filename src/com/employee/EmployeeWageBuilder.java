@@ -44,6 +44,8 @@ public class EmployeeWageBuilder {
 
 	public static void main(String[] args) {
 		EmployeeWageBuilder.totalEmpWage("Amazon", 500, 28, 224);
-
+		EmployeeWageBuilder.totalEmpWage("Infosys", 400, 28, 224);
+		EmployeeWageBuilder.totalEmpWage("Capgemini", 300, 28, 224);
+		EmployeeWageBuilder.totalEmpWage("NDTV", 100, 28, 252);
 	}
 }
